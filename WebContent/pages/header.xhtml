@@ -2,11 +2,30 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<h:outputStylesheet name="css/default.css" />
+</h:head>
 
 <f:view contentType="text/html">
-	<p:menubar class="gkPage">
-		<p:menuitem value="Home" url="./index.xhtml"></p:menuitem>
-		<p:menuitem value="Contact" url="/contact.xhtml"></p:menuitem>
-	</p:menubar>
+
+	<div id="gkMenuWrapper">
+		<div class="gkPage">
+			<div id="gkMainMenu" class="first active">
+				<p:menubar class="gkPage">
+					<p:menuitem value="HOME" url="./index.xhtml"></p:menuitem>
+					<p:menuitem value="CONTATO"
+						url="http://www.nexteditorial.com.br/contato"></p:menuitem>
+				</p:menubar>
+			</div>
+			<div id="gkUserArea">
+				<p style="text-align: right; padding-top: 4px;">
+					<a href="http://facebook.com/nexteditorial" target="_blank"><img
+						src="http://www.nexteditorial.com.br/images/icone-fb.png" alt="" /></a>
+					<a href="http://twitter.com/nexteditorial" target="_blank"><img
+						src="http://www.nexteditorial.com.br//images/icone-tw.png" alt="" /></a>
+				</p>
+			</div>
+		</div>
+	</div>
 </f:view>
 </html>
