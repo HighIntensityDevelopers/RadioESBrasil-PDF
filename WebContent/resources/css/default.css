@@ -1,0 +1,20 @@
+.ui-widget,.ui-widget .ui-widget,table,.ui-dialog-title,.ui-confirm-dialog-message {
+	font-size: 14px !important;
+	font-family: 'Raleway', Arial !important;
+	font-weight: 400 !important;
+	line-height: 1.6 !important;
+	color: #333;
+	-webkit-font-smoothing: antialiased;
+}
+
+table {
+	border: 0px !important;
+}
+
+tr {
+	border: 0px !important;
+}
+
+td {
+	border: 0px !important;
+}
