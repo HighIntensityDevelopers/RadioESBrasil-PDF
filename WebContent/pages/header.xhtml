@@ -7,16 +7,28 @@
 </h:head>
 
 <f:view contentType="text/html">
-
 	<div id="gkMenuWrapper">
 		<div class="gkPage">
-			<div id="gkMainMenu" class="first active">
-				<p:menubar class="gkPage">
-					<p:menuitem value="HOME" url="./index.xhtml"></p:menuitem>
-					<p:menuitem value="CONTATO"
-						url="http://www.nexteditorial.com.br/contato"></p:menuitem>
-				</p:menubar>
+			<div id="gkMainMenu" class="gkPage">
+				<nav id="gkExtraMenu" class="gkMenu">
+					<ul class="gkmenu level0">
+						<li class="first active"><a
+							href="./index.xhtml" class=" first active"
+							id="menu640" title="Home">Home</a></li>
+						<li class="last"><a
+							href="http://www.nexteditorial.com.br/contato" class=" last"
+							id="menu719" title="Contato">Contato</a></li>
+					</ul>
+				</nav>
 			</div>
+
+			<div id="gkMobileMenu" class="gkPage">
+				Menu <select onchange="window.location.href=this.value;">
+					<option selected="selected" value="./index.xhtml">Home</option>
+					<option value="http://www.nexteditorial.com.br/contato">Contato</option>
+				</select>
+			</div>
+
 			<div id="gkUserArea">
 				<p style="text-align: right; padding-top: 4px;">
 					<a href="http://facebook.com/nexteditorial" target="_blank"><img
