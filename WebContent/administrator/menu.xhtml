@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<f:view contentType="text/html">
+	<h:head>
+		<h:outputStylesheet name="css/default.css" />
+		<meta charset="utf-8" />
+	</h:head>
+
+	<h:body>
+		<p:panelGrid columns="1" style="margin: 0 auto;">
+			<p:menubar>
+	            <p:menuitem value="Geral" url="general.jsf" style="margin: 0 10px 0 10px" />
+	            <p:menuitem value="Perguntas" url="question.jsf" style="margin: 0 10px 0 10px" />
+	            <p:menuitem value="Respostas" url="answer.jsf" style="margin: 0 10px 0 10px" />
+	            <p:menuitem value="Usuário" url="user.jsf" style="margin: 0 10px 0 10px" />
+	            <p:menuitem value="Sair" url="logoff.jsf" style="margin: 0 10px 0 10px" />
+			</p:menubar>
+		</p:panelGrid>
+		<hr/>
+	</h:body>
+</f:view>
+</html>

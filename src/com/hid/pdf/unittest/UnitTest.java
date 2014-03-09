@@ -1,4 +1,4 @@
-package br.com.hid.unittest;
+package com.hid.pdf.unittest;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;

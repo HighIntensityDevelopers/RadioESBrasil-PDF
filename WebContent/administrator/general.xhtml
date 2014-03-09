@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<f:view contentType="text/html">
+	<h:head>
+		<h:outputStylesheet name="css/default.css" />
+		<meta charset="utf-8" />
+		
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:600,700" type="text/css" />
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:300,400" type="text/css" />
+	</h:head>
+
+	<h:body>
+		<p:growl id="growl" showDetail="true" />
+		
+		<ui:include src="../pages/header_adm.xhtml"/>
+		<ui:include src="menu.xhtml"/>
+		
+		<h:form id="form-config">
+		
+			<p:panelGrid columns="2" style="width: 980px; margin: 0 auto;">
+				<h:outputLabel for="ftp" value="#{label['ftp']}" />
+				<p:inputText id="ftp" value="#{general.ftp}" size="117" />
+			</p:panelGrid>
+			
+		</h:form>
+	</h:body>
+</f:view>
+</html>

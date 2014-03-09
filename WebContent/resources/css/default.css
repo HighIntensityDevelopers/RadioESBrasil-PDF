@@ -20,20 +20,20 @@ td {
 	border: 0px !important;
 }
 
-.ui-menu,.ui-menubar,.ui-widget,.ui-widget-content,.ui-corner-all,.ui-helper-clearfix
-	{
-	background: none !important;
-	color: white !important;
-	font-family: 'Raleway', Arial, sans-serif !important;
-	font-weight: bold !important;
-	font-size: medium !important;
-	height: 38px !important;
-}
+/* .ui-menu,.ui-menubar,.ui-widget,.ui-widget-content,.ui-corner-all,.ui-helper-clearfix */
+/* 	{ */
+/* 	background: none !important; */
+/* 	color: white !important; */
+/* 	font-family: 'Raleway', Arial, sans-serif !important; */
+/* 	font-weight: bold !important; */
+/* 	font-size: medium !important; */
+/* 	height: 38px !important; */
+/* } */
 
-.ui-menuitem-link,.ui-corner-all {
-	border-style: hidden !important;
-	box-shadow: none !important;
-	vertical-align: middle !important;
-	position: relative !important;
-	top: 35% !important;
-}
+/* .ui-menuitem-link,.ui-corner-all { */
+/* 	border-style: hidden !important; */
+/* 	box-shadow: none !important; */
+/* 	vertical-align: middle !important; */
+/* 	position: relative !important; */
+/* 	top: 35% !important; */
+/* } */

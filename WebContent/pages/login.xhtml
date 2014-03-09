@@ -1,0 +1,69 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<f:view contentType="text/html">
+	<h:head>
+		<meta charset="utf-8" />
+
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:300,400" type="text/css" />
+		
+		<style>
+			table {
+				border: 0px !important;
+			}
+			tr {
+				border: 0px !important;
+			}
+			td {
+				border: 0px !important;
+			}
+		</style>
+	</h:head>
+
+	<h:body>
+	
+		<ui:include src="header_adm.xhtml"/>
+	
+		<h:form id="form">  
+		  
+		    <p:growl id="growl" showDetail="true" life="3000" />  
+		  
+		    <p:dialog id="dialog" header="Login" widgetVar="dlg" resizable="false" closable="false" visible="true" >  
+		  
+		        <h:panelGrid columns="2" cellpadding="5">  
+		            <h:outputLabel for="username" value="Username:" />  
+		            <p:inputText value="#{login.username}"   
+		                    id="username" required="true" label="username" />  
+		              
+		            <h:outputLabel for="password" value="Password:" />  
+		            <h:inputSecret value="#{login.password}"   
+		                    id="password" required="true" label="password" styleClass="ui-inputfield ui-password ui-widget ui-state-default ui-corner-all" />  
+		              
+		            <f:facet name="footer">  
+		                <p:commandButton id="loginButton" value="Login" update="growl"   
+		                    actionListener="#{login.login}"   
+		                    oncomplete="handleLoginRequest(xhr, status, args)"/>  
+		            </f:facet>  
+		        </h:panelGrid>  
+		          
+		    </p:dialog>  
+		</h:form>  
+		  
+		<script type="text/javascript">  
+		    function handleLoginRequest(xhr, status, args) {  
+		        if(args.validationFailed || !args.loggedIn) {  
+		            PF('dlg').jq.effect("shake", { times:5 }, 100);  
+		        }   
+		        else {  
+		            PF('dlg').hide();  
+		            $('#loginLink').fadeOut();
+		        }  
+		    }
+		</script>  
+	
+	</h:body>
+</f:view>
+</html>
