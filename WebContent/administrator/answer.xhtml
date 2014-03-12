@@ -1,0 +1,326 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<f:view contentType="text/html">
+	<h:head>
+		<h:outputStylesheet name="css/default.css" />
+		<meta charset="utf-8" />
+		
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:600,700" type="text/css" />
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:300,400" type="text/css" />
+	</h:head>
+
+	<h:body>
+		<p:growl id="growl" showDetail="true" />
+		
+		<ui:include src="../pages/header_adm.xhtml"/>
+		<ui:include src="menu.xhtml"/>
+			
+		<p:dialog id="removeItemDialog" widgetVar="removeItemDialogwidget"
+			resizable="false" closable="true" modal="true" showEffect="fade"
+			hideEffect="drop" header="#{label['remove']}" style="width: 980px; margin: 0 auto;">
+			<h:form id="removeItemForm">
+				<h:panelGrid columns="2">
+					<h:outputText value="#{label['id']}: " />
+					<h:outputText value="#{answer.bean.id}" />
+
+					<h:outputText value="#{label['email']}:" />
+					<h:outputText value="#{answer.bean.email}" />
+
+<!-- 						<h:outputText value="#{label['answer1']}:" /> -->
+<!-- 						<h:outputText value="#{answer.bean.answer1}" /> -->
+
+<!-- 						<h:outputText value="#{label['answer2']}:" /> -->
+<!-- 						<h:outputText value="#{answer.bean.answer2}" /> -->
+
+<!-- 						<h:outputText value="#{label['answer3']}:" /> -->
+<!-- 						<h:outputText value="#{answer.bean.answer3}" /> -->
+
+<!-- 						<h:outputText value="#{label['answer4']}:" /> -->
+<!-- 						<h:outputText value="#{answer.bean.answer4}" /> -->
+
+<!-- 						<h:outputText value="#{label['answer5']}:" /> -->
+<!-- 						<h:outputText value="#{answer.bean.answer5}" /> -->
+				</h:panelGrid>
+
+				<p:panel style="text-align: center; border-width: 0px;">
+					<p:commandButton value="#{label['remove']}"
+						actionListener="#{answer.remove}"
+						oncomplete="handleRemoveExampleBeanRequest(xhr, status, args);"
+						update="@form :growl :listForm:listOfExampleBean" />
+					<p:commandButton value="#{label['cancel']}"
+						onclick="removeItemDialogwidget.hide(); return false;" />
+				</p:panel>
+			</h:form>
+			<script type="text/javascript">
+				function handleRemoveExampleBeanRequest(xhr, status, args) {
+					if (args.validationFailed) {
+						jQuery('#removeItemDialog').effect("shake", {
+							times : 3
+						}, 100);
+					} else {
+						removeItemDialogwidget.hide();
+					}
+				}
+			</script>
+		</p:dialog>
+		
+		<p:dialog id="detailItemDialog" widgetVar="detailItemDialogwidget"
+			resizable="false" closable="true" modal="true" showEffect="fade"
+			hideEffect="drop" header="#{label['detail']}" style="width: 980px; margin: 0 auto;">
+			<h:form id="detailItemForm">
+				<h:panelGrid columns="2">
+					<h:outputText value="#{label['id']}: " />
+					<h:outputText value="#{answer.bean.id}" />
+
+					<h:outputText value="#{label['email']}:" />
+					<h:outputText value="#{answer.bean.email}" />
+					
+					<p:spacer height="5" />
+					<p:spacer height="5" />
+
+					<h:outputText value="#{label['question1']}:" />
+					<h:outputText value="#{answer.bean.question1}" />
+
+					<h:outputText value="#{label['answer1']}:" />
+					<h:outputText value="#{answer.bean.answer1}" />
+					
+					<p:spacer height="5" />
+					<p:spacer height="5" />
+
+					<h:outputText value="#{label['question2']}:" />
+					<h:outputText value="#{answer.bean.question2}" />
+
+					<h:outputText value="#{label['answer2']}:" />
+					<h:outputText value="#{answer.bean.answer2}" />
+					
+					<p:spacer height="5" />
+					<p:spacer height="5" />
+
+					<h:outputText value="#{label['question3']}:" />
+					<h:outputText value="#{answer.bean.question3}" />
+
+					<h:outputText value="#{label['answer3']}:" />
+					<h:outputText value="#{answer.bean.answer3}" />
+					
+					<p:spacer height="5" />
+					<p:spacer height="5" />
+
+					<h:outputText value="#{label['question4']}:" />
+					<h:outputText value="#{answer.bean.question4}" />
+
+					<h:outputText value="#{label['answer4']}:" />
+					<h:outputText value="#{answer.bean.answer4}" />
+					
+					<p:spacer height="5" />
+					<p:spacer height="5" />
+
+					<h:outputText value="#{label['question5']}:" />
+					<h:outputText value="#{answer.bean.question5}" />
+
+					<h:outputText value="#{label['answer5']}:" />
+					<h:outputText value="#{answer.bean.answer5}" />
+				</h:panelGrid>
+
+				<p:panel style="text-align: center; border-width: 0px;">
+					<p:commandButton value="#{label['cancel']}"
+						onclick="detailItemDialogwidget.hide(); return false;" />
+				</p:panel>
+			</h:form>
+			<script type="text/javascript">
+				function handleDetailExampleBeanRequest(xhr, status, args) {
+					if (args.validationFailed) {
+						jQuery('#detailItemDialog').effect("shake", {
+							times : 3
+						}, 100);
+					} else {
+						detailItemDialogwidget.hide();
+					}
+				}
+			</script>
+		</p:dialog>
+		
+		<h:form id="listForm">
+			<p:panel style="width: 980px; margin: 0 auto; border: 0px !important;">
+				<p:dataTable id="listOfExampleBean" rows="10" paginator="true"
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="5,10,15" var="bean" value="#{answer.list}"
+					editable="true">
+
+					<p:column>
+				        <f:facet name="header">  
+				            <h:outputText value="#{label['id']}:" />  
+				        </f:facet> 
+						<h:outputText value="#{bean.id}" />
+					</p:column>
+					
+					<p:column>
+				        <f:facet name="header">  
+				            <h:outputText value="#{label['email']}:" />  
+				        </f:facet> 
+						<h:outputText value="#{bean.email}" />
+					</p:column>
+					
+					<p:column headerText="" exportable="false" >
+						<p:commandButton title="#{label['detail']}" icon="ui-icon-info"
+							oncomplete="detailItemDialogwidget.show();"
+							update=":detailItemForm">
+							<f:setPropertyActionListener value="#{bean}"
+								target="#{answer.bean}" />
+						</p:commandButton>
+						<p:commandButton title="#{label['remove']}" icon="ui-icon-trash"
+							oncomplete="removeItemDialogwidget.show();"
+							update=":removeItemForm">
+							<f:setPropertyActionListener value="#{bean}"
+								target="#{answer.bean}" />
+						</p:commandButton>
+					</p:column>
+
+				</p:dataTable>
+			</p:panel>
+			
+			<p:panel style="width: 980px; margin: 0 auto; border: 0px !important;">
+				<p:dataTable id="listOfExampleBeanHidden" rows="10" paginator="true" rendered="false"
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="5,10,15" var="bean" value="#{answer.list}"
+					editable="true">
+
+					<p:column>
+				        <f:facet name="header">
+				            <h:outputText value="#{label['id']}:" />  
+				        </f:facet> 
+						<h:outputText value="#{bean.id}" />
+					</p:column>
+					
+					<p:column>
+				        <f:facet name="header">
+				            <h:outputText value="#{label['email']}:" />
+				        </f:facet> 
+						<h:outputText value="#{bean.email}" />
+					</p:column>
+					
+					<p:column>
+				        <f:facet name="header">
+				            <h:outputText value="#{label['question1']}:" />  
+				        </f:facet> 
+						<h:outputText value="#{bean.question1}" />
+					</p:column>
+					
+					<p:column>
+				        <f:facet name="header">
+				            <h:outputText value="#{label['answer1']}:" />  
+				        </f:facet> 
+						<h:outputText value="#{bean.answer1}" />
+					</p:column>
+					
+					<p:column>
+				        <f:facet name="header">
+				            <h:outputText value="#{label['question2']}:" />  
+				        </f:facet> 
+						<h:outputText value="#{bean.question2}" />
+					</p:column>
+					
+					<p:column>
+				        <f:facet name="header">
+				            <h:outputText value="#{label['answer2']}:" />  
+				        </f:facet> 
+						<h:outputText value="#{bean.answer2}" />
+					</p:column>
+					
+					<p:column>
+				        <f:facet name="header">  
+				            <h:outputText value="#{label['question3']}:" />  
+				        </f:facet> 
+						<h:outputText value="#{bean.question3}" />
+					</p:column>
+					
+					<p:column>
+				        <f:facet name="header">
+				            <h:outputText value="#{label['answer3']}:" />  
+				        </f:facet> 
+						<h:outputText value="#{bean.answer3}" />
+					</p:column>
+					
+					<p:column>
+				        <f:facet name="header">
+				            <h:outputText value="#{label['question4']}:" />  
+				        </f:facet> 
+						<h:outputText value="#{bean.question4}" />
+					</p:column>
+					
+					<p:column>
+				        <f:facet name="header">
+				            <h:outputText value="#{label['answer4']}:" />  
+				        </f:facet> 
+						<h:outputText value="#{bean.answer4}" />
+					</p:column>
+					
+					<p:column>
+				        <f:facet name="header">
+				            <h:outputText value="#{label['question5']}:" />  
+				        </f:facet> 
+						<h:outputText value="#{bean.question5}" />
+					</p:column>
+					
+					<p:column>
+				        <f:facet name="header">
+				            <h:outputText value="#{label['answer5']}:" />  
+				        </f:facet> 
+						<h:outputText value="#{bean.answer5}" />
+					</p:column>
+
+					<p:column headerText="" exportable="false" >
+						<p:commandButton title="#{label['remove']}" icon="ui-icon-trash"
+							oncomplete="removeItemDialogwidget.show();"
+							update=":removeItemForm">
+							<f:setPropertyActionListener value="#{bean}"
+								target="#{answer.bean}" />
+						</p:commandButton>
+					</p:column>
+
+				</p:dataTable>
+			</p:panel>
+		
+			<h:panelGrid columns="2" style="margin: 0 auto; border: 0px !important;">
+			    <p:panel header="Exportar todos os dados" style="border: 0px !important;">
+			        <h:commandLink>  
+			            <p:graphicImage value="/images/excel.png" />  
+			            <p:dataExporter type="xls" encoding="iso-8859-1" target="listOfExampleBeanHidden" fileName="Questionario" />  
+			        </h:commandLink>  
+			  
+			        <h:commandLink>  
+			            <p:graphicImage value="/images/pdf.png" />  
+			            <p:dataExporter type="pdf" encoding="iso-8859-1" target="listOfExampleBeanHidden" fileName="Questionario"/>  
+			        </h:commandLink>  
+			          
+			        <h:commandLink>  
+			            <p:graphicImage value="/images/csv.png" />  
+			            <p:dataExporter type="csv" encoding="iso-8859-1" target="listOfExampleBeanHidden" fileName="Questionario" />  
+			        </h:commandLink>  
+			    </p:panel>  
+			      
+			    <p:panel header="Exportar dados desta página" style="border: 0px !important;">  
+			        <h:commandLink>  
+			            <p:graphicImage value="/images/excel.png" />
+			            <p:dataExporter type="xls" encoding="iso-8859-1" target="listOfExampleBeanHidden" fileName="Questionario" pageOnly="true"/>  
+			        </h:commandLink>  
+			  
+			        <h:commandLink>  
+			            <p:graphicImage value="/images/pdf.png" />  
+			            <p:dataExporter type="pdf" encoding="iso-8859-1" target="listOfExampleBeanHidden" fileName="Questionario" pageOnly="true"/>  
+			        </h:commandLink>  
+			          
+			        <h:commandLink>  
+			            <p:graphicImage value="/images/csv.png" />  
+			            <p:dataExporter type="csv" encoding="iso-8859-1" target="listOfExampleBeanHidden" fileName="Questionario" pageOnly="true"/>  
+			        </h:commandLink>  
+			    </p:panel>  
+			</h:panelGrid> 
+		</h:form>
+
+	</h:body>
+</f:view>
+</html>

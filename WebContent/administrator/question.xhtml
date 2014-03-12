@@ -22,12 +22,24 @@
 		<h:form id="form-config">
 		
 			<p:panelGrid columns="2" style="width: 980px; margin: 0 auto;">
-				<h:outputLabel for="linkPdf" value="#{label['linkPdf']}" />
-				<p:inputText id="linkPdf" value="#{general.linkPdf}" size="100" />
+				<h:outputLabel for="question1" value="#{label['question1']}" />
+				<p:inputText id="question1" value="#{question.question1}" size="117" />
+				
+				<h:outputLabel for="question2" value="#{label['question2']}" />
+				<p:inputText id="question2" value="#{question.question2}" size="117" />
+				
+				<h:outputLabel for="question3" value="#{label['question3']}" />
+				<p:inputText id="question3" value="#{question.question3}" size="117" />
+				
+				<h:outputLabel for="question4" value="#{label['question4']}" />
+				<p:inputText id="question4" value="#{question.question4}" size="117" />
+				
+				<h:outputLabel for="question5" value="#{label['question5']}" />
+				<p:inputText id="question5" value="#{question.question5}" size="117" />
 				
 				<h:outputLabel/>
 				<p:commandButton value="#{label['save']}"
-					actionListener="#{general.save}" update="form-config :growl" />
+					actionListener="#{question.save}" update="form-config :growl" />
 			</p:panelGrid>
 			
 		</h:form>
