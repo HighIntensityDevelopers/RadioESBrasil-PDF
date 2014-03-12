@@ -10,10 +10,16 @@ public class Config implements Serializable {
 	private String value;
 	private String valueBlob;
 
-	public static final String _FTP = "ftp";
+	public static final String _LINK_PDF = "linkPdf";
 
 	public static final String _U = "u";
 	public static final String _P = "p";
+
+	public static final String _QUESTION_1 = "question1";
+	public static final String _QUESTION_2 = "question2";
+	public static final String _QUESTION_3 = "question3";
+	public static final String _QUESTION_4 = "question4";
+	public static final String _QUESTION_5 = "question5";
 
 	public Long getId() {
 		return id;

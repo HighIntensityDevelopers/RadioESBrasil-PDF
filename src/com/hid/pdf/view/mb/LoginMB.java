@@ -58,7 +58,7 @@ public class LoginMB implements Serializable {
 				HttpServletRequest request = (HttpServletRequest) facesContext.getExternalContext().getRequest();
 				facesContext.getExternalContext().redirect(request.getContextPath() + "/administrator/general.jsf");
 
-				request.getSession().setAttribute("user", new SessionUser());
+				request.getSession().setAttribute("session-user", new SessionUser());
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

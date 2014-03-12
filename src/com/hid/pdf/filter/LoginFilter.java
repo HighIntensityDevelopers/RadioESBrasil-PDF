@@ -30,7 +30,7 @@ public class LoginFilter implements Filter {
 			ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpSession session = req.getSession();
-		SessionUser user = (SessionUser) session.getAttribute("user");
+		SessionUser user = (SessionUser) session.getAttribute("session-user");
 
 		if (user == null && (req.getRequestURI().contains("administrator"))) {
 			RequestDispatcher rd = req.getRequestDispatcher("/pages/login.jsf");

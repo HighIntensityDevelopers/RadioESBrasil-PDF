@@ -8,8 +8,8 @@
 <h:head>
 	<title>Revista ES Brasil - PDF</title>
 
-	<link rel="stylesheet" href="resources/css/foundation.css" />
-	<link rel="stylesheet" href="resources/css/app.css" />
+	<link rel="stylesheet" href="../resources/css/foundation.css" />
+	<link rel="stylesheet" href="../resources/css/app.css" />
 
 	<link rel="stylesheet"
 		href="http://fonts.googleapis.com/css?family=Raleway:600,700"
@@ -68,32 +68,64 @@ div.center {
 
 	<div id="bg"
 		style="position: fixed; top: -50%; left: -50%; width: 200%; height: 200%; z-index: -999999">
-		<img src="images/bg.png"
+		<img src="../images/bg.png"
 			style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; margin: auto; min-width: 50%; min-height: 50%;" />
 	</div>
 
 	<div class="container">
 
 		<div class="center">
-			<p>
-				<span class="rtitle">​ES Brasil Grátis</span>​
-			</p>
-			<p>
-				<span class="rtext">​Quer receber gratuitamente a Revista ES
-					Brasil no formato pdf (Adobe Acrobat) durante um ano? Começe a ler
-					agora! Mande um email para nós!​</span>​
-			</p>
 
-			<h:form id="form-email">
+				<span class="rtext">#{contato.question1}</span>​
+
+			<h:form id="form-contato">
+				<p:inputText id="answer1" size="50" value="#{contato.answer1}"
+					placeholder="answer1" required="true"
+					requiredMessage="Resposta 1 Obrigatória!" />
+				<p:watermark for="answer1" value="Resposta 1" />
+				<p:message for="answer1" />
+
+					<span class="rtext">#{contato.question2}</span>​
+
+				<p:inputText id="answer2" size="50" value="#{contato.answer2}"
+					placeholder="Answer2" required="true"
+					requiredMessage="Resposta 2 Obrigatória!" />
+				<p:watermark for="answer2" value="Resposta 2" />
+				<p:message for="answer2" />
+
+
+				<span class="rtext">#{contato.question3}</span>​
 				
-				<p:inputText id="email" size="50" value="#{contato.email}" placeholder="email"
-					required="true" requiredMessage="E-mail obrigatório" />
-				<p:watermark for="email" value="Email" />
-				<p:message for="email" />
+
+				<p:inputText id="answer3" size="50" value="#{contato.answer3}"
+					placeholder="Answer3" required="true"
+					requiredMessage="Resposta 3 Obrigatória!" />
+				<p:watermark for="answer3" value="Resposta 3" />
+				<p:message for="answer3" />
+
+				<span class="rtext">#{contato.question4}</span>​
+				
+
+				<p:inputText id="answer4" size="50" value="#{contato.answer4}"
+					placeholder="Answer4" required="true"
+					requiredMessage="Resposta 4 Obrigatória!" />
+				<p:watermark for="answer4" value="Resposta 4" />
+				<p:message for="answer4" />
+
+
+					<span class="rtext">#{contato.question5}</span>​
+
+				<p:inputText id="answer5" size="50" value="#{contato.answer5}"
+					placeholder="Answer5" required="true"
+					requiredMessage="Resposta 5 Obrigatória!" />
+				<p:watermark for="answer5" value="Resposta 5" />
+				<p:message for="answer5" />
 				<br />
-				<br />
+
+
 				<p:commandButton value="Confirmar"
-					actionListener="#{contato.setFirstPage}" update="form-email" styleClass="bred" />
+					actionListener="#{contato.salvarContato}" update="form-contato"
+					styleClass="bred" />
 			</h:form>
 		</div>
 

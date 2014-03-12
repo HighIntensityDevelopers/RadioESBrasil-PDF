@@ -17,14 +17,14 @@ import com.hid.pdf.persistence.dao.ConfigDAO;
 public class GeneralMB implements Serializable {
 	private static final long serialVersionUID = 1886651681656025326L;
 
-	private String ftp;
+	private String linkPdf;
 
 	@PostConstruct
 	public void init() {
 		try {
 			ConfigDAO configDao = ConfigDAO.getInstance();
 
-			ftp = configDao.value(Config._FTP);
+			linkPdf = configDao.value(Config._LINK_PDF);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -34,7 +34,7 @@ public class GeneralMB implements Serializable {
 		try {
 			ConfigDAO configDao = ConfigDAO.getInstance();
 
-			configDao.update(configDao.get(Config._FTP).setValue(ftp));
+			configDao.update(configDao.get(Config._LINK_PDF).setValue(linkPdf));
 
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Sucesso", "Configurações salvas com sucesso."));
 		} catch (Exception e) {
@@ -43,12 +43,12 @@ public class GeneralMB implements Serializable {
 		}
 	}
 
-	public String getFtp() {
-		return ftp;
+	public String getLinkPdf() {
+		return linkPdf;
 	}
 
-	public void setFtp(String ftp) {
-		this.ftp = ftp;
+	public void setLinkPdf(String linkPdf) {
+		this.linkPdf = linkPdf;
 	}
 
 }
