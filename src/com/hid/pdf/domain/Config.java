@@ -20,6 +20,8 @@ public class Config implements Serializable {
 	public static final String _QUESTION_3 = "question3";
 	public static final String _QUESTION_4 = "question4";
 	public static final String _QUESTION_5 = "question5";
+	public static final String _MSGDONWLOAD = "msgdownload";
+	
 
 	public Long getId() {
 		return id;

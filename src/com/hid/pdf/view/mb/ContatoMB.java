@@ -34,6 +34,25 @@ public class ContatoMB implements Serializable {
 	private String question3;
 	private String question4;
 	private String question5;
+	private String msgDownload;
+	private String linkPDF;
+
+	public String getMsgDownload() {
+		return msgDownload;
+	}
+
+	public void setMsgDownload(String msgDownload) {
+		this.msgDownload = msgDownload;
+	}
+
+	public String getLinkPDF() {
+		return linkPDF;
+	}
+
+	public void setLinkPDF(String linkPDF) {
+		this.linkPDF = linkPDF;
+	}
+
 
 	public String getAnswer1() {
 		return answer1;
@@ -136,7 +155,9 @@ public class ContatoMB implements Serializable {
 		question3 = ConfigDAO.getInstance().get(Config._QUESTION_3).getValue();
 		question4 = ConfigDAO.getInstance().get(Config._QUESTION_4).getValue();
 		question5 = ConfigDAO.getInstance().get(Config._QUESTION_5).getValue();
-		
+		msgDownload =ConfigDAO.getInstance().get(Config._MSGDONWLOAD).getValue() ; 
+		linkPDF =ConfigDAO.getInstance().get(Config._LINK_PDF).getValue() ;
+		System.out.println("MSG_DOWNLOAD"+msgDownload);
 	}
 
 	public void salvarContato() {
