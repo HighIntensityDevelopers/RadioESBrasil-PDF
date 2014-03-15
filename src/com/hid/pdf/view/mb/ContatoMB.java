@@ -32,6 +32,8 @@ public class ContatoMB implements Serializable {
 	private String question1;
 	private String question2;
 	private String question3;
+	private String question4;
+	private String question5;
 
 	public String getAnswer1() {
 		return answer1;
@@ -73,8 +75,7 @@ public class ContatoMB implements Serializable {
 		this.answer5 = answer5;
 	}
 
-	private String question4;
-	private String question5;
+	
 
 	public String getQuestion1() {
 		return question1;
